@@ -12,3 +12,11 @@ header p{
     display: flex;
     justify-content: end;
 }
+
+.hide{
+    display: none;
+}
+
+#intro-section{
+    text-align: center;
+}
