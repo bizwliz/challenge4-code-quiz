@@ -17,7 +17,7 @@ header p{
     display: none;
 }
 
-#intro-section, #question-section{
+#intro-section, #question-section, #initial-section{
     text-align: center;
 }
 
