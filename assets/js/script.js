@@ -130,23 +130,29 @@ function nextQuestion(event){
 function saveInformation() {
     var userInput = document.getElementById("initial-input").value;
     var timerScore = timeLeft;
-  
+
     // Store the saved information (initials and timer score) in variables or data structures
     var savedInitials = userInput;
     var savedScore = timerScore;
-  
+
+    // Display the final score in the initial section
+    var scoreSpanEl = document.getElementById("score");
+    scoreSpanEl.textContent = savedScore;
+
     // Hide the initial section
     var initialSectionEl = document.getElementById("initial-section");
     initialSectionEl.classList.add("hide");
-  
+
     // Show the highscore section
     var highscoreSectionEl = document.getElementById("highscore-section");
     highscoreSectionEl.classList.remove("hide");
-  
-    // Display the saved initials and timer score
+
+    // Display the saved initials and timer score in the highscore section
     var initialsScoreTextbox = document.getElementById("saved-initials-score");
     initialsScoreTextbox.value = savedInitials + " - " + savedScore;
 }
+  
+  
 
 function clearHighScores() {
     var initialsScoreTextbox = document.getElementById("saved-initials-score");
