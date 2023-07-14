@@ -46,7 +46,7 @@ function startQuiz(){
     showQuestions()
 }
 
-function CountDown() {
+function CountDown(){
     timerEl.textContent = timeLeft--;
 
     if (timeLeft < 0) {
@@ -77,23 +77,23 @@ function showQuestions(){
 function nextQuestion(event){
     var currentElement = event.target;
     if (currentElement.matches("button")) {
-        var selectedChoice = currentElement.textContent;
-        var correctAnswer = questionsArray[questionIndex].answer;
+    var selectedChoice = currentElement.textContent;
+    var correctAnswer = questionsArray[questionIndex].answer;
 
-        if (selectedChoice === correctAnswer) {
-            // User selected the correct answer
-            questionIndex++;
+    if (selectedChoice === correctAnswer) {
+        // User selected the correct answer
+            questionIndex++
 
             // Remove the "Wrong!" message if it exists
             var wrongMessage = document.querySelector(".wrong-message");
-            if (wrongMessage) {
+            if (wrongMessage){
                 wrongMessage.remove();
             }
 
-            if (questionIndex < questionsArray.length) {
+            if (questionIndex < questionsArray.length){
                 // Display the next question
                 showQuestions();
-            } else {
+            } else{
                 // All questions have been answered
                 clearInterval(setIntervalId);
 
@@ -114,7 +114,7 @@ function nextQuestion(event){
 
             // Deduct 15 seconds from the timer
             timeLeft -= 15;
-            if (timeLeft < 0) {
+            if (timeLeft < 0){
                 timeLeft = 0;
             }
 
@@ -125,9 +125,7 @@ function nextQuestion(event){
     }
 }
 
-
-
-function saveInformation() {
+function saveInformation(){
     var userInput = document.getElementById("initial-input").value;
     var timerScore = timeLeft;
 
@@ -152,14 +150,12 @@ function saveInformation() {
     initialsScoreTextbox.value = savedInitials + " - " + savedScore;
 }
   
-  
-
-function clearHighScores() {
+function clearHighScores(){
     var initialsScoreTextbox = document.getElementById("saved-initials-score");
     initialsScoreTextbox.value = "";
 }
   
-  function goBack() {
+  function goBack(){
     location.reload();
 }  
 
