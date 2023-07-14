@@ -26,7 +26,7 @@ button {
     font-size: 12px;
 }
 
-.wrong-message{
+.wrong-message, .correct-message{
     color: royalblue;
     border-top: black solid;
     font-size: 20px;

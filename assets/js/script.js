@@ -73,27 +73,37 @@ function showQuestions(){
     choicesEl[3].textContent = questionsArray[questionIndex].choices[3]
 }
 
-
 function nextQuestion(event){
     var currentElement = event.target;
     if (currentElement.matches("button")) {
-    var selectedChoice = currentElement.textContent;
-    var correctAnswer = questionsArray[questionIndex].answer;
+        var selectedChoice = currentElement.textContent;
+        var correctAnswer = questionsArray[questionIndex].answer;
 
-    if (selectedChoice === correctAnswer) {
-        // User selected the correct answer
-            questionIndex++
+        if (selectedChoice === correctAnswer) {
+            // User selected the correct answer
+            questionIndex++;
 
-            // Remove the "Wrong!" message if it exists
+            // Remove the "Wrong!" and "Correct!" messages if they exist
             var wrongMessage = document.querySelector(".wrong-message");
-            if (wrongMessage){
+            if (wrongMessage) {
                 wrongMessage.remove();
             }
+            
+            var correctMessage = document.querySelector(".correct-message");
+            if (correctMessage) {
+                correctMessage.remove();
+            }
 
-            if (questionIndex < questionsArray.length){
+            // Display a "Correct!" message
+            var correctMessage = document.createElement("p");
+            correctMessage.textContent = "Correct!";
+            correctMessage.classList.add("correct-message");
+            questionSectionEl.appendChild(correctMessage);
+
+            if (questionIndex < questionsArray.length) {
                 // Display the next question
                 showQuestions();
-            } else{
+            } else {
                 // All questions have been answered
                 clearInterval(setIntervalId);
 
@@ -106,6 +116,12 @@ function nextQuestion(event){
             }
         } else {
             // User selected the wrong answer
+            // Remove the "Correct!" message if it exists
+            var correctMessage = document.querySelector(".correct-message");
+            if (correctMessage) {
+                correctMessage.remove();
+            }
+
             // Display a "Wrong!" message
             var wrongMessage = document.createElement("p");
             wrongMessage.textContent = "Wrong!";
@@ -114,13 +130,12 @@ function nextQuestion(event){
 
             // Deduct 15 seconds from the timer
             timeLeft -= 15;
-            if (timeLeft < 0){
+            if (timeLeft < 0) {
                 timeLeft = 0;
             }
 
             // Update the timer display immediately
             timerEl.textContent = timeLeft;
-
         }
     }
 }
