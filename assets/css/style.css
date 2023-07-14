@@ -13,11 +13,11 @@ header p{
     justify-content: end;
 }
 
-button:hover {
+button:hover{
     background-color: darkblue;
 }
 
-button {
+button{
     background-color: purple;
     color: white;
     justify-content: left;
@@ -38,7 +38,7 @@ button {
     display: none;
 }
 
-.choices {
+.choices{
     background-color: purple;
     color: white;
     border-radius: 5px;
@@ -53,27 +53,26 @@ button {
 
 }
 
-.button-container {
+.button-container{
     display: flex;
     justify-content: left;
     margin-top: 20px;
 }
 
-.button-container button {
+.button-container button{
     margin: 10px;
     padding: 10px ;
     width: 150px;
     height: 30px;
     border-radius: 5px;
     text-align: left;
-    
 }
 
 #intro-section, #question-section, #initial-section, #highscore-section{
     text-align: center;
 }
 
-#question-section ul {
+#question-section ul{
     list-style: none;
     padding: 0;
     display: flex;
