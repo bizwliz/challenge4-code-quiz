@@ -19,7 +19,7 @@ var questionsArray = [
     },
     {
         title: "q3",
-        choices: "c1, c2, c3, c4",
+        choices: ["c1", "c2", "c3", "c4"],
         answer: "c2"
     },
     {
@@ -65,15 +65,47 @@ function showQuestions(){
 }
 
 
-function handleAnswer(event){
-    console.log(event.target.textContent)
-    console.log(questionsArray[questionIndex].answer)
-    questionIndex++
-    showQuestions()
-    
-}
-for(var i = 0; i < choicesEl.length; i++){
-    choicesEl[i].addEventListener("click", handleAnswer)
+function nextQuestion(event){
+    var currentElement = event.target;
+    if (currentElement.matches("button")) {
+        var selectedChoice = currentElement.textContent;
+        var correctAnswer = questionsArray[questionIndex].answer;
+
+        if (selectedChoice === correctAnswer) {
+            // User selected the correct answer
+            questionIndex++;
+
+            // Remove the "Wrong!" message if it exists
+            var wrongMessage = document.querySelector(".wrong-message");
+            if (wrongMessage) {
+                wrongMessage.remove();
+            }
+
+            if (questionIndex < questionsArray.length) {
+                // Display the next question
+                showQuestions();
+            } else {
+                // All questions have been answered
+                clearInterval(setIntervalId);
+
+                // Hide the question section
+                questionSectionEl.classList.add("hide");
+
+                // Show the next section
+                var initialSectionEl = document.getElementById("initial-section");
+                initialSectionEl.classList.remove("hide");
+            }
+        } else {
+            // User selected the wrong answer
+            // Display a "Wrong!" message
+            var wrongMessage = document.createElement("p");
+            wrongMessage.textContent = "Wrong!";
+            wrongMessage.classList.add("wrong-message");
+            questionSectionEl.appendChild(wrongMessage);
+        }
+    }
 }
 
+
 startBtn.addEventListener("click", startQuiz)
+questionSectionEl.addEventListener("click", nextQuestion)
