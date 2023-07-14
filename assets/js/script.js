@@ -9,29 +9,29 @@ var saveBtn = document.getElementById("save-btn");
 var questionIndex = 0
 var questionsArray = [
     {
-        title: "q1",
-        choices: ["c1", "c2", "c3", "c4"],
-        answer: "c2"
+        title: "Commonly used data types DO Not Include:",
+        choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+        answer: "3. alerts"
     },
     {
-        title: "q2",
-        choices: ["c1", "c2", "c3", "c4"],
-        answer: "c2"
+        title: "The condition in an if / else statement is enclosed with _______.",
+        choices: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
+        answer: "3. parenthesis"
     },
     {
-        title: "q3",
-        choices: ["c1", "c2", "c3", "c4"],
-        answer: "c2"
+        title: "Arrays in Javascript can be used to store _______.",
+        choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        answer: "4. all of the above"
     },
     {
-        title: "q4",
-        choices: ["c1", "c2", "c3", "c4"],
-        answer: "c2"
+        title: "String values must be enclosed within _______ when being assigned to variables.",
+        choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"],
+        answer: "3. quotes"
     },
     {
-        title: "q5",
-        choices: ["c1", "c2", "c3", "c4"],
-        answer: "c2"
+        title: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
+        answer: "4. console.log"
     }
 ]
 
