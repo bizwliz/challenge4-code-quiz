@@ -33,7 +33,7 @@ I learned how to create a function and execute a code using different datatypes 
 Link to website: https://bizwliz.github.io/challenge4-code-quiz/
 
 <video width="500px" height="300px" controls="controls">
-<source src="./assets/images & videos/websiteVideo.mp4" type="video/mp4" /></source></video>
+<source src="./assets/images & videos/project4Video.mp4" type="video/mp4" /></source></video>
 
 ---
 
