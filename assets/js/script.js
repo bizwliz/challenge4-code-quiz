@@ -4,6 +4,7 @@ var timerEl = document.getElementById("timer")
 var questionSectionEl = document.getElementById("question-section")
 var titleEl = document.getElementById("title")
 var choicesEl = document.querySelectorAll(".choices")
+var saveBtn = document.getElementById("save-btn");
 
 var questionIndex = 0
 var questionsArray = [
@@ -45,10 +46,18 @@ function startQuiz(){
     showQuestions()
 }
 
-function CountDown(){
-    timerEl.textContent = timeLeft--
-    if(timeLeft===0){
-        clearInterval(setIntervalId)
+function CountDown() {
+    timerEl.textContent = timeLeft--;
+
+    if (timeLeft < 0) {
+        clearInterval(setIntervalId);
+
+        // Hide the question section
+        questionSectionEl.classList.add("hide");
+
+        // Show the next section
+        var initialSectionEl = document.getElementById("initial-section");
+        initialSectionEl.classList.remove("hide");
     }
 }
 
@@ -117,5 +126,39 @@ function nextQuestion(event){
 }
 
 
+
+function saveInformation() {
+    var userInput = document.getElementById("initial-input").value;
+    var timerScore = timeLeft;
+  
+    // Store the saved information (initials and timer score) in variables or data structures
+    var savedInitials = userInput;
+    var savedScore = timerScore;
+  
+    // Hide the initial section
+    var initialSectionEl = document.getElementById("initial-section");
+    initialSectionEl.classList.add("hide");
+  
+    // Show the highscore section
+    var highscoreSectionEl = document.getElementById("highscore-section");
+    highscoreSectionEl.classList.remove("hide");
+  
+    // Display the saved initials and timer score
+    var initialsScoreTextbox = document.getElementById("saved-initials-score");
+    initialsScoreTextbox.value = savedInitials + " - " + savedScore;
+}
+
+function clearHighScores() {
+    var initialsScoreTextbox = document.getElementById("saved-initials-score");
+    initialsScoreTextbox.value = "";
+}
+  
+  function goBack() {
+    location.reload();
+}  
+
 startBtn.addEventListener("click", startQuiz)
 questionSectionEl.addEventListener("click", nextQuestion)
+saveBtn.addEventListener("click", saveInformation);
+document.getElementById("clear-btn").addEventListener("click", clearHighScores);
+document.getElementById("go-back-btn").addEventListener("click", goBack);
