@@ -102,6 +102,16 @@ function nextQuestion(event){
             wrongMessage.textContent = "Wrong!";
             wrongMessage.classList.add("wrong-message");
             questionSectionEl.appendChild(wrongMessage);
+
+            // Deduct 15 seconds from the timer
+            timeLeft -= 15;
+            if (timeLeft < 0) {
+                timeLeft = 0;
+            }
+
+            // Update the timer display immediately
+            timerEl.textContent = timeLeft;
+
         }
     }
 }
